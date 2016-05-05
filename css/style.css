@@ -1,0 +1,39 @@
+body {
+	background-color: #fff;
+}
+
+h1 {
+	font-size: 36px;
+	font-family: 'Shadows Into Light', cursive;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0px;
+}
+
+.header-text {
+	padding: 15px;
+	margin: 15px;
+}
+
+.container {
+	text-align: center;
+	padding-top: 15px;
+}
+
+.btn {
+	background-color: #000;
+}
+
+.notify {
+	color: green;
+}
+
+.incorrect {
+	background-color: red;
+}
+
+.div {
+	vertical-align: center;
+}

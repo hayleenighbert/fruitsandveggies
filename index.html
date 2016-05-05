@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="SortingApp">
+    <head>
+        <title>Fruit and Veggies Sorting Game</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+        <script src="js/fruit_and_veggies.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        <div class="container" ng-controller="FoodController">
+            <div class="header-text">
+                <h1>Fruits and Veggies</h1><br>
+                <img src="http://rlv.zcache.ca/happy_tomato_sticker-r1bb2b124c05c4d6494c9238222e3b733_v9waf_8byvr_324.jpg" width="200px"><br>
+                <small><strong>An AngularJS sorting game app</strong></small>
+            </div>
+                <h1 class="notify" ng-show="sorted">Now sort them Alphabetically!</h1>
+                <h1 class="notify" ng-show="ordered">Woohoo! You're a fruit and veggies MASTER</h1>
+            <div class="row">
+                <div class="col-sm-4">
+                    Fruits
+                    <ul id="fruitz">
+                        <li ng-repeat="item in fruitList track by $index">
+                            <div class="well" ng-class="{'incorrect': incorrect($index)}"> 
+                                <button ng-show="alphabet" ng-click="moveDownL($index)" class="btn btn-primary">&darr;</button>
+                                {{item}} - {{$index}}
+                                <button ng-show="!alphabet" ng-click="moveCenterFromFruits($index)" class="btn btn-primary">&rarr;</button>
+
+                                <button ng-show="alphabet" ng-click="moveUpL($index)" class="btn btn-primary">&uarr;</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    Fruit or Vegetable?
+
+                    <ul>
+                        <li ng-repeat="item in foodList track by $index">
+                            <div class="well">
+                                <button ng-click="moveLeft($index)" class="btn btn-primary">&larr;</button>
+                                {{item}} - {{$index}}
+                                <button ng-click="moveRight($index)" class="btn btn-primary">&rarr;</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    Veggies
+                    <ul>
+                        <li ng-repeat="item in veggieList track by $index">
+                            <div class="well" ng-class="{'incorrect': incorrectR($index)}">  
+                                <button ng-show="alphabet" ng-click="moveDownR($index)" class="btn btn-primary">&darr;</button>
+                                <button ng-show="!alphabet" ng-click="moveCenterFromVeggies($index)" class="btn btn-primary">&larr;</button>
+                                {{item}} - {{$index}}
+                                <button ng-show="alphabet" ng-click="moveUpR($index)" class="btn btn-primary">&uarr;</button>
+                            </div>     
+                        </li>
+                    </ul>
+                </div>                        
+            </div>
+        </div>
+    </body>
+</html>
